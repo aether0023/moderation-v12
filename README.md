@@ -1,5 +1,5 @@
-Merhaba arkadaşlar bugün sizlere yaptığım **Moderasyon** botunu sunacağım.
-Öncelikle bu bot **Serendia Squad** için yapılmıştır.
+## Merhaba arkadaşlar bugün sizlere yaptığım **Moderasyon** botunu sunacağım.
+## Öncelikle bu bot **Serendia Squad** için yapılmıştır.
 
 `•` Botu indirip kurun.
 `•` Konsolu açarak `npm i` yazın ve gerekli modüllerin kurulmasını bekleyin.
