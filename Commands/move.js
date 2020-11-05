@@ -16,7 +16,7 @@ module.exports.execute = async (client, message, args) => {
         };
 
         message.channel.send(embed.setDescription(`${victim}, ${message.author} adlı üye seni sesli kanalına davet etmek istiyor, kabul ediyor musun?`).setFooter(`Kabul etmek için 15 saniyen mevcut.`)).then(x => {
-            await x.react("✅");
+            x.react("✅");
             x.awaitReactions(filter, {max: 1, time: 15000, error: ['time']}).then(resp => {
                 let response = resp.first();
                 if (response) {
