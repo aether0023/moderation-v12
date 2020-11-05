@@ -12,7 +12,7 @@ module.exports.execute = async (client, message, args) => {
     if (!punishment) return message.channel.send(embed.setDescription(`Belirtilen ceza numarasında bir ceza dosyası bulunamadı. \`!#${cezaID}\``)).then(x => x.delete({timeout: 10000}));
     let victim = client.users.fetch(punishment.kisi) || punishment.kisi;
     let mod = client.users.fetch(punishment.mod) || punishment.mod;
-    let time = punishment.zaman;
+    let zaman = punishment.zaman;
 
     message.channel.send(embed.setDescription(`\`#${cezaID}\` **Numaralı Ceza Dosyası;** \n\n\`•\` Ceza: **[${punishment.komut}]** \n\`•\` Ceza Alan: ${victim} (\`${victim.id || punishment.kisi}\`) \n\`•\` Yetkili: ${mod} (\`${mod.id || punishment.mod}\`) \n\`•\` Ceza Tarihi: \`${new Date(zaman).toTurkishFormatDate()}\` \n\`•\` Sebep: **${punishment.sebep}**`));
 
