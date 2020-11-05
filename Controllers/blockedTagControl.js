@@ -15,8 +15,9 @@ module.exports = () => {
 
   function checkYasakTaglar() {
     let sunucu = client.guilds.cache.get(ayar.sunucuID);
+      let xyz = sunucu.members.cache.filter(x => !x.user.bot && x.user.username.includes(ayar.yasakliTag));
     sunucu.members.cache.filter(x => !x.user.bot && x.user.username.includes(ayar.yasakliTag)).forEach(y => {
         y.roles.set([ayar.yasakliTagRol]).catch();
-        cdb.push("yasakTag", y.map(x => `y${x.id}`));
+        cdb.push("yasakTag", xyz.map(x => `y${xyz.id}`));
     });
   };
