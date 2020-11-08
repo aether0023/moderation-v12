@@ -28,8 +28,8 @@ module.exports.execute = async (client, message, args) => {
     let cezabilgisi = `\`${jail || '0'}\` adet jail, \`${ban || '0'}\` adet ban, \`${cmute+vmute || '0'}\` mute (\`${cmute || '0'} chat\` - \`${vmute || '0'} ses\`), cezası mevcut.`;
     let cezalandirmaBilgisi = `\`${jailCez || '0'}\` adet jail, \`${banCez || '0'}\` adet ban, \`${cmuteCez+vmuteCez || '0'}\` mute (\`${cmuteCez || '0'} chat\` - \`${vmuteCez || '0'} ses\`), cezalandırması mevcut.`;
     let profilBilgi = `${victim.presence.status.replace("idle", "Boşta").replace("dnd", "Rahatsız Etmeyin").replace("offline", "Çevrimdışı/Görünmez").replace("online", "Çevrimiçi")}`;
-    let sunucuyaGiris = `${moment(uye.joinedAt).toTurkishFormatDate()}`;
-    let olusturulmaTarihi = `${moment(victim.createdAt).toTurkishFormatDate()}`;
+    let sunucuyaGiris = `${new Date(uye.joinedAt).toTurkishFormatDate()}`;
+    let olusturulmaTarihi = `${new Date(victim.createdAt).toTurkishFormatDate()}`;
     let takmaAd = `${uye.displayName.replace("`", "")} ${uye.nickname ? "" : "[Yok]"}`;
     
     message.channel.send(embed.setDescription(`__**Kullanıcı Bilgisi;**__
