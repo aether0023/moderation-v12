@@ -10,10 +10,10 @@ module.exports.execute = async (client, message, args) => {
     let embed = new MessageEmbed().setTitle(message.member.displayName, message.author.avatarURL({dynamic: true})).setFooter('Aether & Serendia').setColor("RANDOM").setTimestamp();
     if (!message.member.roles.cache.has(ayar.muteHammer) && !message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(embed.setDescription(`Bu komudu kullanmak için gerekli izinlere sahip değilsin.`)).then(x => x.delete({timeout: 10000}));
     let victim = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
-    let time = Number (args[1]);
+    let time = args[1]
     let reason = args.splice(2).join(" ");
     if (message.member.roles.highest.position <= victim.roles.highest.position) return message.channel.send(embed.setDescription(`Bu üyenin yetkileri senden yüksek veya aynı yetkide olduğunuz için işlemi gerçekleştiremiyorum.`)).then(x => x.delete({timeout: 10000}));
-    if (!victim || !ms(time) || reason.length < 1) return message.channel.send(embed.setDescription(`Komutu doğru kullanmalısın! \`Örnek: ${ayar.prefix || ""}cmute @üye [süre (1s/1d/1m/1h) ] [sebep]\``)).then(x => x.delete({timeout: 10000}));
+    if (!victim || !time || !ms(time) || reason.length < 1) return message.channel.send(embed.setDescription(`Komutu doğru kullanmalısın! \`Örnek: ${ayar.prefix || ""}cmute @üye [süre (1s/1d/1m/1h) ] [sebep]\``)).then(x => x.delete({timeout: 10000}));
     if (victim.user.bot) return message.channel.send(embed.setDescription(`Bu komutu botlar üzerinde kullanamazsın!`)).then(x => x.delete({timeout: 10000}));
     
     let yaziSure = time.replace("h", "Saat").replace("m", "Dakika").replace("d", "Gün").replace("s", "Saniye");
