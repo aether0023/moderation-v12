@@ -13,7 +13,7 @@ module.exports.execute = async (client, message, args) => {
     let time = Number (args[1]);
     let reason = args.splice(2).join(" ");
     if (message.member.roles.highest.position <= victim.roles.highest.position) return message.channel.send(embed.setDescription(`Bu üyenin yetkileri senden yüksek veya aynı yetkide olduğunuz için işlemi gerçekleştiremiyorum.`)).then(x => x.delete({timeout: 10000}));
-    if (!victim || !time || !ms(time) || reason.length < 1) return message.channel.send(embed.setDescription(`Komutu doğru kullanmalısın! \`Örnek: ${ayar.prefix || ""}cmute @üye [süre (1s/1d/1m/1h) ] [sebep]\``)).then(x => x.delete({timeout: 10000}));
+    if (!victim || !ms(time) || reason.length < 1) return message.channel.send(embed.setDescription(`Komutu doğru kullanmalısın! \`Örnek: ${ayar.prefix || ""}cmute @üye [süre (1s/1d/1m/1h) ] [sebep]\``)).then(x => x.delete({timeout: 10000}));
     if (victim.user.bot) return message.channel.send(embed.setDescription(`Bu komutu botlar üzerinde kullanamazsın!`)).then(x => x.delete({timeout: 10000}));
     
     let yaziSure = time.replace("h", "Saat").replace("m", "Dakika").replace("d", "Gün").replace("s", "Saniye");
