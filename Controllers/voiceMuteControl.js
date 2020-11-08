@@ -6,8 +6,6 @@ const ayar = require("../settings.json");
 
 module.exports = (oldState, newState) => {
 
-    if (oldState.user.bot || newState.user.bot) return;
-
     if ((oldState.channelID && !newState.channelID)) {
         let control = cdb.get(`vstatus.${oldState.id}.${oldState.guild.id}`);
         if (control) {
