@@ -14,7 +14,7 @@ module.exports.execute = async (client, message, args) => {
     let mod = client.users.fetch(punishment.mod) || punishment.mod;
     let zaman = punishment.zaman;
 
-    message.channel.send(embed.setDescription(`\`#${cezaID}\` **Numaralı Ceza Dosyası;** \n\n\`•\` Ceza: **[${punishment.komut}]** \n\`•\` Ceza Alan: ${victim} (\`${victim.id || punishment.kisi}\`) \n\`•\` Yetkili: ${mod} (\`${mod.id || punishment.mod}\`) \n\`•\` Ceza Tarihi: \`${new Date(zaman).toTurkishFormatDate()}\` \n\`•\` Sebep: **${punishment.sebep}**`));
+    message.channel.send(embed.setDescription(`\`#${cezaID}\` **Numaralı Ceza Dosyası;** \n\n\`•\` Ceza: **[${punishment.komut}]** \n\`•\` Ceza Alan: ${message.guild.members.cache.get(punishment.kisi) || punishment.kisi} (\`${victim.id || punishment.kisi}\`) \n\`•\` Yetkili: ${message.guild.members.cache.get(punishment.mod) || punishment.mod} (\`${mod.id || punishment.mod}\`) \n\`•\` Ceza Tarihi: \`${new Date(zaman).toTurkishFormatDate()}\` \n\`•\` Sebep: **${punishment.sebep}**`));
 
 };
 
