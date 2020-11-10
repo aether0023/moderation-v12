@@ -43,8 +43,8 @@ module.exports.execute = async (client, message, args) => {
 
     \`•\` **Sunucuya Giriş Tarihi:** \`${sunucuyaGiris}\`
     \`•\` **Takma İsim:** \`${takmaAd}\`
-    \`•\` **Aldığı Cezalar:** \`${cezabilgisi}\`
-    \`•\` **Verdiği Cezalar:** \`${cezalandirmaBilgisi}\`
+    \`•\` **Aldığı Cezalar:** ${cezabilgisi}
+    \`•\` **Verdiği Cezalar:** ${cezalandirmaBilgisi}
     \`•\` **Ceza Puanı:** \`${cpuan || '0'}\` (\`${durum}\`)
     `).setFooter(`${message.author.tag} tarafından istendi.`, message.author.avatarURL({dynamic: true})));
 
