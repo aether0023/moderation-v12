@@ -8,7 +8,7 @@ module.exports = (oldUser, newUser) => {
     let family = sunucu.roles.cache.get(ayar.familyRol);
     if (!xyz) return;
 
-    let embed = new MessageEmbed().setTitle(message.member.displayName, message.author.avatarURL({dynamic: true})).setFooter('Aether & Serendia').setColor("RANDOM").setTimestamp();
+    let embed = new MessageEmbed().setTitle(xyz.displayName, oldUser.avatarURL({dynamic: true})).setFooter('Aether & Serendia').setColor("RANDOM").setTimestamp();
         if (!oldUser.username.includes(ayar.tag) && newUser.username.includes(ayar.tag)) {
             xyz.roles.add(ayar.familyRol).catch();
             if (sunucu.channels.cache.has(ayar.ekipLogKanali)) sunucu.channels.cache.get(ayar.ekipLogKanali).send(embed.setDescription(`${xyz} adlı üye tagımızı (\`${ayar.tag}\`) aldığı için kendisine ekip rolü verildi.`))
